@@ -1,29 +1,29 @@
 
-###UserAPI - A Simple User Management System
+### UserAPI - A Simple User Management System
 ##Introduction
 Welcome to UserAPI, a straightforward and efficient user management system designed to handle user data seamlessly. 
 
-##API Endpoints
+## API Endpoints
 Base URL
 https://new-userapi.onrender.com/api/v1/users
 
-#Endpoints
+# Endpoints
 Get All Users
 GET /
 Retrieves a list of all users.
 
-#Get User by ID
+# Get User by ID
 GET /:id
 Retrieves a specific user by their ID.
 
-#Create New User
+# Create New User
 POST /
 Creates a new user. (req.body => {"name": "","email": ""})
 
-#Update User
+# Update User
 PUT /:id
 Updates an existing user's information by ID.
 
-#Delete User
+# Delete User
 DELETE /:id
 Deletes a user by ID.
