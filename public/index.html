@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UserAPI Interface</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .response-container {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>UserAPI Test Interface</h2>
+
+<button onclick="getAllUsers()">Get All Users</button>
+<button onclick="getUserById()">Get User by ID</button>
+<button onclick="createNewUser()">Create New User</button>
+<button onclick="updateUser()">Update User</button>
+<button onclick="deleteUser()">Delete User</button>
+
+<div class="response-container" id="response"></div>
+
+<script>
+     const apiUrl = 'https://new-userapi.onrender.com/api/v1/users';
+
+    function getAllUsers() {
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => updateResponse(data))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function getUserById() {
+        const userId = prompt("Enter User ID:");
+        fetch(`${apiUrl}/${userId}`)
+            .then(response => response.json())
+            .then(data => updateResponse(data))
+            .catch(error => console.error('Error:', error));
+    }
+
+    function createNewUser() {
+        // You will need to modify this to include the user data in the request
+        const userData = {}; // Replace with actual user data
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => updateResponse(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function updateUser() {
+        const userId = prompt("Enter User ID to Update:");
+        const userData = {
+            "name": prompt("Enter name"),
+            "email": prompt("Enter email")
+        }; // Replace with actual user data for update
+        fetch(`${apiUrl}/${userId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData)
+        })
+        .then(response => response.json())
+        .then(data => updateResponse(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function deleteUser() {
+        const userId = prompt("Enter User ID to Delete:");
+        fetch(`${apiUrl}/${userId}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => updateResponse(data))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function updateResponse(data) {
+        document.getElementById('response').innerText = JSON.stringify(data, null, 2);
+    }
+</script>
+
+</body>
+</html>

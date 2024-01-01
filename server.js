@@ -11,6 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/v1/users', userRoutes)
+app.use(express.static('public'));
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 3000
