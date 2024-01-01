@@ -57,7 +57,10 @@
 
     function createNewUser() {
         // You will need to modify this to include the user data in the request
-        const userData = {}; // Replace with actual user data
+        const userData = {
+            "name": prompt("Enter name"),
+            "email": prompt("Enter email")
+        }; // Replace with actual user data
         fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
