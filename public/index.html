@@ -5,20 +5,38 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .description {
+            margin: 20px auto;
+            line-height: 1.6;
+            max-width: 600px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .response-container {
             margin-top: 20px;
             border: 1px solid #ddd;
             padding: 10px;
             background-color: #f9f9f9;
+            text-align: left;
         }
         button {
             background-color: #4CAF50;
             color: white;
             padding: 10px 15px;
-            margin: 5px;
+            margin: 10px;
             border: none;
             cursor: pointer;
+            border-radius: 4px;
         }
         button:hover {
             background-color: #45a049;
@@ -27,7 +45,11 @@
 </head>
 <body>
 
-<h2>UserAPI Test Interface</h2>
+<h2 class="header">UserAPI Test Interface</h2>
+
+<div class="description">
+    <p>This site was created by Sifado Liron. It's a backend server utilizing Node.js with the Express.js library. Unique user IDs are generated using the uuid library. The project leverages dotenv for environment variable management and the fs module for file operations, providing a robust and scalable user management solution.</p>
+</div>
 
 <button onclick="getAllUsers()">Get All Users</button>
 <button onclick="getUserById()">Get User by ID</button>
